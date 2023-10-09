@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Simple Calc</h1>
+
+    <form onsubmit="calculate ()">
+        <label for="n1">First Number</label>
+        <input type="number" id="n1">
+        <br><br>
+
+        <label for="n2">Second Number</label>
+        <input type="number" id="n2">
+        <br><br>
+
+        <label for="operation">Operation</label>
+        <select name="" id="operation">
+            <option value="">Select</option>
+            <option value="+">Addiction</option>
+            <option value="-">Subtraction</option>
+            <option value="*">Multiplication</option>
+            <option value="/">Division</option>
+        </select>
+
+
+        <button type="submit" onclick="calculate ()"> calculate </button>
+
+    </form>
+
+    <script>
+        function calculate() {
+            event.preventDefault();
+            let n1 = document.getElementById("n1").value;
+            let n2 = document.getElementById("n2").value;
+            let op = document.getElementById('operation').value
+            let result
+            if (op == '+') {
+
+                result = addition(n1, n2)
+
+            }
+
+            else if (op == '-') {
+                result = subtraction(n1, n2)
+            }
+
+            else if (op == '*') {
+                result = multiplication(n1, n2)
+            }
+
+            else if (op = '/') {
+                result = division(n1, n2)
+            }
+
+            else {
+                return null
+            }
+
+            console.log(`o resultado e ${result}`);
+        }
+
+
+        function subtraction(x, y) {
+            return parseFloat(x) - parseFloat(y)
+        }
+
+        function addition(x, y) {
+            return parseFloat(x) + parseFloat(y)
+        }
+
+        function multiplication(x, y) {
+            return parseFloat(x) * parseFloat(y)
+        }
+
+        function division(x, y) {
+            return parseFloat(x) / parseFloat(y)
+        }
+
+    </script>
+</body>
+
+</html>
